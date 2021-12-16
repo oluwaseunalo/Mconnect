@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import { TextField, Button, Typography, Paper } from "@mui/material";
-//import FileBase from "react-file-base64";
+import { TextField, Button, Typography, Paper } from "@material-ui/core";
+import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
 import { createPost } from "../../actions/posts";
 
 const Form = () => {
-  const [postData, setPostData] = useState("");
+  const [postData, setPostData] = useState({
+    creator: "",
+    title: "",
+    message: "",
+    tags: "",
+    selectedFile: "",
+  });
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -23,7 +29,7 @@ const Form = () => {
       <form
         autoComplete="off"
         noValidate
-        className={classes.form}
+        className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
         <Typography variant="h6"> Memory Reflections</Typography>
@@ -32,34 +38,34 @@ const Form = () => {
           variant="outlined"
           label="Creator"
           fullWidth
-          value={postData}
-          onChange={() => {}}
+          value={postData.creator}
+          onChange={(e) => setPostData({ creator: e.target.value })}
         />
         <TextField
           name="title"
           variant="outlined"
           label="Title"
           fullWidth
-          value={postData}
-          onChange={() => {}}
+          value={postData.title}
+          onChange={(e) => setPostData({ title: e.target.value })}
         />
         <TextField
           name="message"
           variant="outlined"
           label="Message"
           fullWidth
-          value={postData}
-          onChange={() => {}}
+          value={postData.message}
+          onChange={(e) => setPostData({ message: e.target.value })}
         />
         <TextField
           name="tags"
           variant="outlined"
           label="Tags"
           fullWidth
-          value={postData}
-          onChange={() => {}}
+          value={postData.tags}
+          onChange={(e) => setPostData({ tags: e.target.value })}
         />
-        {/* <div className={classes.fileInput}>
+        <div className={classes.fileInput}>
           <FileBase
             type="file"
             multiple={false}
@@ -67,7 +73,7 @@ const Form = () => {
               setPostData({ ...postData, selectedFile: base64 })
             }
           />
-        </div> */}
+        </div>
         <Button
           className={classes.buttonSubmit}
           variant="contained"

@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
+    marginTop: "10%",
   },
   form: {
     display: "flex",
