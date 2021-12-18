@@ -21,6 +21,7 @@ const Form = () => {
     e.preventDefault();
 
     dispatch(createPost(postData));
+    console.log(postData);
   };
   const clear = () => {};
 
@@ -39,7 +40,9 @@ const Form = () => {
           label="Creator"
           fullWidth
           value={postData.creator}
-          onChange={(e) => setPostData({ creator: e.target.value })}
+          onChange={(e) =>
+            setPostData({ ...postData, creator: e.target.value })
+          }
         />
         <TextField
           name="title"
@@ -47,7 +50,7 @@ const Form = () => {
           label="Title"
           fullWidth
           value={postData.title}
-          onChange={(e) => setPostData({ title: e.target.value })}
+          onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
         <TextField
           name="message"
@@ -55,7 +58,9 @@ const Form = () => {
           label="Message"
           fullWidth
           value={postData.message}
-          onChange={(e) => setPostData({ message: e.target.value })}
+          onChange={(e) =>
+            setPostData({ ...postData, message: e.target.value })
+          }
         />
         <TextField
           name="tags"
@@ -63,7 +68,7 @@ const Form = () => {
           label="Tags"
           fullWidth
           value={postData.tags}
-          onChange={(e) => setPostData({ tags: e.target.value })}
+          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
         <div className={classes.fileInput}>
           <FileBase
