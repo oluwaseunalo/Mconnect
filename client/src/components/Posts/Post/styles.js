@@ -2,10 +2,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles({
   media: {
-    height: 0,
-    paddingTop: "56.25%",
+    height: "0%",
+    paddingTop: "25%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     backgroundBlendMode: "darken",
+    objectFit: "scale-down",
   },
   border: {
     border: "solid",
@@ -18,7 +19,7 @@ export default makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     borderRadius: "15px",
-    height: "100%",
+    height: "2%",
     position: "relative",
   },
   overlay: {
