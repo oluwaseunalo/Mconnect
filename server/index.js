@@ -4,17 +4,17 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import postRoutes from "./routes/posts.js";
+import posts from "./routes/posts.js";
 
 const app = express();
 
 dotenv.config();
 
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/posts", postRoutes);
+app.use("/posts", posts);
 
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
