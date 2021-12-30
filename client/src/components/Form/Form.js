@@ -34,7 +34,16 @@ const Form = ({ currentId, setCurrentId }) => {
       console.log(postData);
     }
   };
-  const clear = () => {};
+  const clear = () => {
+    setCurrentId(null);
+    setPostData({
+      creator: "",
+      title: "",
+      message: "",
+      tags: "",
+      selectedFile: "",
+    });
+  };
 
   return (
     <Paper className={classes.paper}>
@@ -44,7 +53,9 @@ const Form = ({ currentId, setCurrentId }) => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6"> Memory Reflections</Typography>
+        <Typography variant="h6">
+          {currentId ? `Updating ` : ""}Memory Reflections
+        </Typography>
         <TextField
           name="creator"
           variant="outlined"
