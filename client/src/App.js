@@ -16,7 +16,12 @@ const App = () => {
   return (
     <Container maxWidth="lg">
       <AppBar position="static" color="inherit" className={classes.AppBar}>
-        <Typography variant="h2" align="center" className={classes.heading}>
+        <Typography
+          variant="h2"
+          align="center"
+          className={classes.heading}
+          color="purple"
+        >
           MConnect
         </Typography>
       </AppBar>
